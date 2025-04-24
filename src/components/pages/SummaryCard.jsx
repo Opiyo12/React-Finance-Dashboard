@@ -1,16 +1,26 @@
 import React from 'react'
+import { 
+  Card,
+  CardTitle,
+  CardDescription
+ } from '../ui/card'
 
 const SummaryCard = ({color,icon, name, amount}) => {
   return (
-    <div className={`flex mt-10 gap-4 bg-white p-4 rounded-2xl border-l-5 ${color} `}>
-                <div className='flex flex-col justify-center'>
-                  <div className='rounded-full bg-green-200 p-1 text-slate-500'>{icon}</div>
-                </div>
-              <div>
-                <h1 className='font-bold'>{name}</h1>
-                <h1 className='text-slate-500 ml-5 font-bold'>{amount}</h1>
-               </div>
-          </div>
+    <div>
+      <Card className="flex flex-row mt-5 gap-2 w-[180px] ml-5">
+        <div className='flex flex-col justify-center px-2 '>
+          <div className='rounded-full bg-green-200 p-1 text-slate-500 ml-3'>{icon}</div>
+        </div>
+        <div className=''>
+        
+          <CardTitle>{name}</CardTitle>
+          <CardDescription>{amount}</CardDescription>
+        
+        
+        </div>
+      </Card>
+    </div>
   )
 }
 

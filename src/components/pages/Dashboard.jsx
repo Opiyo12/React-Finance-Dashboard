@@ -46,21 +46,21 @@ const borderColors = {
           name="Total Expenses"
           amount={summary?.expenses}
           icon={<FaChartLine></FaChartLine>}
-          color={borderColors.blue}
+          
 
           />
           <SummaryCard
           name="Net Balance"
           amount={summary?.netBalance}
           icon={<FaBalanceScale></FaBalanceScale>}
-          color={borderColors.red}
+          
 
           />
           <SummaryCard
           name="Saving Goal"
           amount={`${summary?.savingGoal}%`}
           icon={<FaSave></FaSave>}
-          color={borderColors.orange}
+         
 
           />
          
