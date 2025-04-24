@@ -7,8 +7,9 @@ import { Route, Routes } from 'react-router-dom'
 import Transaction from './components/pages/Transaction'
 import Settings from './components/pages/Settings'
 import Dashboard from './components/pages/Dashboard'
-import { Card, CardDescription, CardHeader, CardTitle } from './components/ui/card'
-import { FaDollarSign } from 'react-icons/fa'
+
+
+
 
 function App() {
   
@@ -21,7 +22,7 @@ function App() {
       <Route path='/transaction' element={<Transaction/>}/>
       <Route path='/settings' element={<Settings/>}/>
     </Routes>
-    
+  
    </div>
   )
 }
