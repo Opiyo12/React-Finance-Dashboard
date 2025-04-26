@@ -7,30 +7,32 @@ const Transaction = () => {
   const{transactions, isLoading, error}= useTransaction();
   if (error) return <p className="text-red-500">Failed to load Transaction.</p>;
   return (
-  <div className='flex flex-col items-center h-screen bg-gray-200'>
+ <div>
+    <h1 className='text-blue-500  text-2xl'>Welcome To the Overall Transaction List</h1>
+     
+
+     <div >
+     <div >
           {isLoading &&(
           <Loading/>
         )}
-
-      <div className='flex bg-white h-10 items-center p-6 rounded mt-10  '>
-        <h1 className=' font-bold text-blue-500'>Welcome to the Overall  Transaction List </h1>
-      </div>
-  <div className='mt-5 bg-white p-7 rounded xl'>
+  
       
- <Table >
- <TableHeader>
- <TableRow>
-    <TableHead className="w-[100px]">ID</TableHead>
-    <TableHead className="w-[100px]" >Date</TableHead>
-    <TableHead className="w-[100px]">Description</TableHead>
-    <TableHead className="w-[100px]">Category</TableHead>
-    <TableHead className="w-[100px]">Amount</TableHead>
-    <TableHead className="w-[100px]">Types</TableHead>
-   </TableRow>
- </TableHeader>
-   {transactions?.map((tx)=>(
+  <Table className="bg-white mt-5 rounded-md">
+    <TableHeader>
+    <TableRow>
+        <TableHead className="w-[100px]">ID</TableHead>
+        <TableHead className="w-[100px]" >Date</TableHead>
+        <TableHead className="w-[100px]">Description</TableHead>
+        <TableHead className="w-[100px]">Category</TableHead>
+        <TableHead className="w-[100px]">Amount</TableHead>
+        <TableHead className="w-[100px]">Types</TableHead>
+      </TableRow>
+    </TableHeader>
+   
    <TableBody>
-      <TableRow>
+   {transactions?.map((tx)=>(
+      <TableRow key={tx}>
         <TableCell>{tx.id}</TableCell>
         <TableCell>{tx.date}</TableCell>
         <TableCell>{tx.description}</TableCell>
@@ -39,11 +41,13 @@ const Transaction = () => {
         Shs. {tx.amount}</span></TableCell>
         <TableCell>{tx.type}</TableCell>
       </TableRow>
+      ))}
     </TableBody>
-    ))}
+    
     
 </Table>
 </div>
+ </div>
  </div>
   )
 }

@@ -6,8 +6,6 @@ import { FaDollarSign,FaChartLine, FaBalanceScale,  FaSave } from 'react-icons/f
 
 
 
-
-
 const Dashboard = () => {
   const{summary, isLoading, error}= useSummary();
   
@@ -24,17 +22,17 @@ const borderColors = {
 
 
   return (
-    <div className='flex flex-col items-center bg-gray-200 h-screen'>
+    <div className='' >
        {isLoading && (
         <Loading/>
       )}
 
-     <div className='flex bg-white h-10 items-center p-6 rounded mt-10  '>
-      <h1 className=' font-bold text-blue-500'>Welcome to the Overall Dashboard Summary </h1>
+     <div >
+      <h1 className=' text-2xl text-blue-500 text-center'>Welcome to the Overall Dashboard Summary </h1>
       </div>
   
       {/* cards */}
-      <div className='flex gap-5 ml-40 flex-wrap '>
+      <div className='flex justify-center gap-5 flex-wrap'>
           <SummaryCard
           name="Total Income"
           amount={summary?.income}
