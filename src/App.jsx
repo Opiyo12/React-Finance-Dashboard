@@ -25,8 +25,13 @@ function App() {
           </div>
 
           {/* Menu */}
-          <Menu mode="inline" defaultSelectedKeys={['1']} className="h-full"
+          <Menu mode="inline" defaultSelectedKeys={['0']} className="h-full"
            items ={ [
+              {
+                key: '0',
+                icon: <DashboardOutlined size={20} />,
+                label: <Link to="">Home</Link>,
+              },
               {
                 key: '1',
                 icon: <DashboardOutlined size={20} />,
@@ -60,6 +65,7 @@ function App() {
             ]}
             
           />
+          
             
         </Sider>
 

@@ -1,54 +1,38 @@
 import React from 'react'
 import { useTransaction } from '../hooks/useTransaction';
-import Loading from './Loading';
 import { Table,TableHead, TableCell, TableRow, TableBody, TableHeader } from '../ui/table';
+import TransactionItem from './TransactionItem';
+import TransactionList from './TransactionList';
+import Skeleton from '../ui/Skeleton';
 
 const Transaction = () => {
-  const{transactions, isLoading, error}= useTransaction();
-  if (error) return <p className="text-red-500">Failed to load Transaction.</p>;
+  const{transactions, error,isLoading}= useTransaction();
+  if (error) {
+    return (
+    
+      <div>
+        <p className="text-red-500">Error:{error.message}</p>
+        <p className='text-red-500'>Network  Error:- Check your internet connection</p>
+      </div>
+    )
+  }
   return (
- <div>
-    <h1 className='text-blue-500  text-2xl'>Welcome To the Overall Transaction List</h1>
+ <div >
+    <h1 className='text-gray-600  text-2xl'> The Overall Transaction List</h1>
      
 
-     <div >
-     <div >
-          {isLoading &&(
-          <Loading/>
-        )}
-  
-      
+     
+       <div >
+          {isLoading &&(<Skeleton/>)}
+       </div>
+    
   <Table className="bg-white mt-5 rounded-md">
-    <TableHeader>
-    <TableRow>
-        <TableHead className="w-[100px]">ID</TableHead>
-        <TableHead className="w-[100px]" >Date</TableHead>
-        <TableHead className="w-[100px]">Description</TableHead>
-        <TableHead className="w-[100px]">Category</TableHead>
-        <TableHead className="w-[100px]">Amount</TableHead>
-        <TableHead className="w-[100px]">Types</TableHead>
-      </TableRow>
-    </TableHeader>
-   
-   <TableBody>
-   {transactions?.map((tx)=>(
-      <TableRow key={tx}>
-        <TableCell>{tx.id}</TableCell>
-        <TableCell>{tx.date}</TableCell>
-        <TableCell>{tx.description}</TableCell>
-        <TableCell>{tx.category}</TableCell>
-        <TableCell><span className={tx.type === 'Income' ? 'text-green-600' : 'text-red-600'}>
-        Shs. {tx.amount}</span></TableCell>
-        <TableCell>{tx.type}</TableCell>
-      </TableRow>
-      ))}
-    </TableBody>
-    
-    
-</Table>
-</div>
+    <TransactionItem/>
+    <TransactionList/>  
+  </Table>
+
  </div>
- </div>
+
   )
 }
 

@@ -1,8 +1,8 @@
 import React from 'react'
-import Loading from './Loading'
 import { useSummary } from '../hooks/useSummary'
 import SummaryCard from './SummaryCard'
 import { FaDollarSign,FaChartLine, FaBalanceScale,  FaSave } from 'react-icons/fa'
+import Skeleton from '../ui/Skeleton';
 
 
 
@@ -24,11 +24,11 @@ const borderColors = {
   return (
     <div className='' >
        {isLoading && (
-        <Loading/>
+        <Skeleton/>
       )}
 
      <div >
-      <h1 className=' text-2xl text-blue-500 text-center'>Welcome to the Overall Dashboard Summary </h1>
+      <h1 className=' text-2xl text-gray-600 text-center'>The Transaction Summary </h1>
       </div>
   
       {/* cards */}
